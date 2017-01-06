@@ -1,47 +1,42 @@
 const data = require('./data.js');
 
-// An array of items [[4.5, 4], [...]]
-function sum(items) {
-	return items.reduce((score, item) => {
-		return score + item;
-	}, 0);
+const sum = (array, operation = (x) => {return x}) => {
+	return array.reduce((total, amount) => {
+		return total + operation(amount)
+	}, 0)
+}
+const sumOfSquares = (array) => {
+	return sum(array, (amount) => {
+		return Math.pow(amount, 2)
+	})
+}
+const sumOfProducts = (array) => {
+	return sum(array, (item) => {
+		return item[0] * item[1]
+	})
+}
+const selectFromArray = (array, index) => {
+	return array.map((item) => { return item[index] })
 }
 
-function sumSquare(items) {
-	return items.reduce((score, item) => {
-		return score + Math.pow(item, 2);
-	}, 0);
-}
 
-function sumProducts(items) {
-	return items.reduce((score, item) => {
-		return score + item[0] * item[1];
-	}, 0);
-}
-
-function pearson(items) {
-
-	const item1 = items.map((item) => {
-		return item[0];
-	});
-	const item2 = items.map((item) => {
-		return item[1];
-	});
-
-	const sum1 = sum(item1);
-	const sum2 = sum(item2);
-	const sumSquare1 = sumSquare(item1);
-	const sumSquare2 = sumSquare(item2);
-	const sumOfProducts = sumProducts(items);
-	const n = items.length;
+const pearson = (items) => {
+	const item1 = items.map(p => { return p[0] })
+	const item2 = items.map(q => { return q[1] })
+	const sum1 = sum(item1)
+	const sum2 = sum(item2)
+	const sumSquare1 = sumOfSquares(item1)
+	const sumSquare2 = sumOfSquares(item2)
+	const sumOfProducts = sumOfProducts(items)
+	const n = items.length
 
 	// Pearson score formulae
-	const numerator = sumOfProducts - ((sum1 * sum2) / n);
-	const denominator = Math.sqrt((sumSquare1 - Math.pow(sum1, 2) / n) * (sumSquare2 - Math.pow(sum2, 2) / n));
+	const distanceCovariance = n = sumOfProducts - ((sum1 * sum2) / n)
+	const distanceStandardDeviations = d = Math.sqrt((sumSquare1 - Math.pow(sum1, 2) / n) * (sumSquare2 - Math.pow(sum2, 2) / n))
 
-	if (denominator === 0) return 0;
-	const r = numerator / denominator;
-	return r;
+	if (d === 0) return 0;
+	const distanceCorrelation = c = n / d
+	return c
 }
 
 
