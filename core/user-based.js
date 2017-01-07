@@ -26,18 +26,17 @@ const recommendations = (prefs, person, formula) => {
 
     sumSimilarity = results.reduce((prev, item) => {
       if (!prev[item]) prev[item] = 0
-      prev[item] +=  score
+      prev[item] += score
       return prev
     }, sumSimilarity)
   })
 
-
-
   return Object.keys(totals).map((item) => {
-    return [item, totals[item] / sumSimilarity[item]]
-  }).sort((a, b) => {
-    return b[0] - a[0]
-  })
+    return {
+      user: item,
+      score: totals[item] / sumSimilarity[item]
+    }
+  }).sort((a, b) => b.score[0] - a.score[0])
 }
 
 module.exports = recommendations

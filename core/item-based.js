@@ -1,50 +1,60 @@
 
-function calculateSimilarItems(prefs, n=10) {
-  let results = {};
+const Match = require('../core/match.js')
+const Model = require('../core/model.js')
+const Euclidean = require('../algorithm/euclidean.js')
 
+// Item-based collaborative filtering
+function similarity (prefs, limit = 10) {
   // Invert the matrix to be item-centric
-  const itemPrefs = transpose(prefs);
-  const movies = Object.keys(itemPrefs);
-  movies.map((movie) => {
-    const score = topMatches(itemPrefs, movie, n=n, Euclidean.similarity);
-    results[movie] = score;
-  });
-  return results;
+  const transposed = Model.transpose(prefs)
+  return Object.keys(transposed).reduce((prev, movie) => {
+    const results = Match(transposed, movie, limit, Euclidean.similarity)
+    prev[movie] = results.map((result) => {
+      return {
+        // Map user -> item
+        item: result.user,
+        score: result.score
+      }
+    })
+    return prev
+  }, {})
 }
-console.log('Similar items to the movie', calculateSimilarItems(data, data.length));
-function getRecommendedMovies(prefs, formulae, user) {
-  const userRatings = prefs[user];
+
+function recommendations (prefs, formulae, user) {
+  const similars = similarity(prefs, prefs.length)
+  const userRatings = prefs[user]
+  const movies = Object.keys(userRatings)
   let scores = {}
   let totalSim = {}
 
-  const movies = Object.keys(userRatings);
-  const similars = calculateSimilarItems(prefs, prefs.length);
   movies.map((movie) => {
-
     // skip movies that have been rated
     const unratedMovies = similars[movie].filter((movie) => {
-      return movies.indexOf(movie[0]) === -1;
-    });
-    const rating = userRatings[movie];
-    unratedMovies.forEach((movie) => {
-      const item = movie[0];
-      const score = movie[1];
-      if (!scores[item]) scores[item] = 0;
-      scores[item] += rating * score;
+      return movies.indexOf(movie[0]) === -1
+    })
+    const rating = userRatings[movie]
+    unratedMovies.forEach((result) => {
+      const { item, score } = result
+      if (!scores[item]) scores[item] = 0
+      scores[item] += rating * score
 
-      if (!totalSim[item]) totalSim[item] = 0;
-      totalSim[item] += score;
-    });
-  });
+      if (!totalSim[item]) totalSim[item] = 0
+      totalSim[item] += score
+    })
+  })
 
-  const all = Object.keys(scores);
+  const all = Object.keys(scores)
 
   return all.map((m) => {
-    const score = scores[m];
-    const total = totalSim[m];
-    return [m, score / total];
+    const score = scores[m]
+    const total = totalSim[m]
+    return {
+      item: m,
+      score: score / total
+    }
   }).sort((a, b) => {
-    return b[1] - a[1];
-  });
-
+    return b.score - a.score
+  })
 }
+
+module.exports = { recommendations }

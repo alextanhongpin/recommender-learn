@@ -1,8 +1,8 @@
 // statistic.js
-// 
+//
 // Usage:
 // const Statistic = require('./statistic')
-// 
+//
 // Statistic.sum([n1, n2, n3,...nn])
 // -> returns the sum of the array
 //

@@ -1,20 +1,16 @@
 // model.js is a utility to carry operations on a list of objects
 
-const keys = (obj) => {
-  return Object.keys(obj)
-}
-
-
-function transpose(data) {
-
+function transpose (data) {
   let schema = {}
   Object.keys(data).map((key) => {
     const value = data[key]
-    const itemKeys = Object.keys(value)
-    const invertedObject = itemKeys.forEach((value) => {
-      if (!schema[value]) schema[value] = {}
-      schema[value][key] = data[key][value]
+    const valueKeys = Object.keys(value)
+    const invertedObject = valueKeys.forEach((valueKey) => {
+      if (!schema[valueKey]) schema[valueKey] = {}
+      schema[valueKey][key] = data[key][valueKey]
     })
   })
   return schema
 }
+
+module.exports = { transpose }
