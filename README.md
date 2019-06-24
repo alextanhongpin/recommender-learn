@@ -48,3 +48,13 @@ https://medium.com/netflix-techblog/netflix-recommendations-beyond-the-5-stars-p
 Case based reasoning CBR: https://en.m.wikipedia.org/wiki/Case-based_reasoning
 https://www.quora.com/What-are-examples-of-rule-engines-combined-with-machine-learning
 
+
+## Matrix Factorization
+
+https://en.m.wikipedia.org/wiki/Matrix_factorization_(recommender_systems)
+http://rstudio-pubs-static.s3.amazonaws.com/335300_11d40bf12d8940f78d9661b3c63150dc.html
+
+https://www.freecodecamp.org/news/singular-value-decomposition-vs-matrix-factoring-in-recommender-systems-b1e99bc73599/
+
+
+
