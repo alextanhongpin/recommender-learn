@@ -4,6 +4,7 @@ sample pearson and euclidean distance algorithm in JavaScript for recomendation 
 ## Collaborative Filtering
 
 Using One Slope algorithm for binary ranking (1, 0)
+https://en.wikipedia.org/wiki/Slope_One
 
 ## Recommendation algorithm
 - how to write one from scratch
