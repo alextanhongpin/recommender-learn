@@ -1,5 +1,28 @@
-# recommender
-sample pearson and euclidean distance algorithm in JavaScript for recomendation system
+# recommender-learn
+
+The know-how on how recommendation system works, and how to apply different algorithms for your projects.
+
+
+## Types of recommendation system
+
+- Collaborative Learning
+- Content Based (item based or user based)
+- Hybrid recommender
+
+Input
+- data in the form of rating, score or events, sentiment
+
+Output
+- ranking of items to recommend
+- pool of items
+- score for the items
+
+## Similarity Algorithms
+
+What are the different type of similarity function and what usecases are they suitable for?
+
+- https://dataaspirant.com/2015/04/11/five-most-popular-similarity-measures-implementation-in-python/
+- https://pdfs.semanticscholar.org/d490/d24e64022735116b45dd18307d6dba97170c.pdf
 
 ## Collaborative Filtering
 
@@ -40,6 +63,88 @@ Recommender system algorithm + hot rank algorithm. Incorporate recency into the 
 displays a list of top github users with recommendation. Skills proven: data recommendation for users, data scraping and data visualization.
 learn to
 
+## Events
+
+| Events |Event	Meaning	| Event Name|
+| - | - | - |
+| Scrolling a themed row |	User is interested in the theme, e.g. Dramas	|genreView|
+|Placing the mouse over a film to request an overview of content	|User is interested in the movie (a drama) thereby showing interest in this category	|details|
+|Clicking the film to request the details of the content	|User is more interested in the movie|	moreDetails|
+|Adding the film to my list	|User intends to watch the movie later	|addToList|
+|Starting to watch the movie	|User purchases the movie	|playStart|
+
+|Logging|userID	|contentID	|event	date|
+|-|-|-|-|
+|1234|	1|	addToList|	2017-01-01|
+|1234|	2|	genreView|	2017-01-01|
+
+
+## Client side code to capture events
+```js
+function onScroll(evt) {
+	// Get the genre
+	if ($el === '.carousel' && $el.dataset[‘genre’])  logGenre()
+}
+```
+```js
+function onClick() {
+	logEvent(‘details’, userId)
+}
+```
+
+## Indicator of Interest
+clicks 
+- links: user wants to get more information
+- see more (expansion clicks): user is interested to know more
+- item: user selects the items of preference
+- filter: user has a specific search criteria (which can be stored for future use)
+share: user shows interest in an item
+save for later/bookmark: user shows interest in an item
+subscribe/unsubscribe: user wants to be notified on new content
+scroll
+- user wants to see more item
+rate: user wants to rate an item. ratings can be explicit or implicit
+	- explicit: added manually by the users
+	- implicit: calculated from the evidence you collected
+vote: user wants to vote/unvote item he/she likes/agree/disagree/has strong opinion <insert context>. Sites that use voting are called reputation systems.
+like: user shows like/dislike on an item
+comment: user wants to leave comment (positive/negative/neutral)
+review: user wants to leave review on a product (positive/negative/neutral)
+search
+- keywords: user is looking for a particular keyword
+- filters: user has a criteria of search (which may change over time, so it’s better to set an “expiry” time on the preference, or store a history of it)
+page_duration: For page duration, it depends on the application too. A video streaming site might have users staying longer (if the user stayed for the whole period of the movie, it means they love it!)
+while a ecommerce site might expect users to be there just for a short duration
+activity: let’s take a music playing app for example
+- start playing: the user is interested, that is already a positive
+- stop playing: maybe the user think it’s bad, but this is relative to where the user stop. Stopping at the start could mean that it is bad, stopping at the end could mean something else
+- resume playing: forget all the negative implicit ratings that the system has registered, the user is probably distracted by something else (someone calling them etc). If playing is resumed in 5 minutes, the user probably has something else at hand. If the playing is resumed 24 hours later, it could mean something else)
+- speeding: If the user skips something in the middle, it’s probably not a good sign. Unless the user is resuming
+- playing it to the end - we have a winner. This is a good sign, unless the user is idle and left the playlist playing
+- replaying - this could be a positive indicator. But replaying a music and an educational video might have different context - the latter might suggest that the content is too difficult to follow.
+
+Creating profile for a single vs average group
+- when building a profile, we always attempt to target a group of users and averaging their behaviours.
+- this might or might not work, as different users really have different habits
+- but building a targetted personalisation would consume too much resources
+
+
+| Duration on Page | What it means |
+| - | - |
+|less than 5 seconds | No interest|
+|more than 5 seconds | interested|
+|more than 1 minute | very interested|
+|more than 5 minutes | probably went to get coffee|
+|more than 10 mins | interrupted or went away from the page without following the link|
+
+
+## Cold Start
+
+Dealing with cold start
+- show default data by most popular/latest
+- we can also segment them by demographic/age etc
+- gray sheeps are users that have individual taste that does not resemble other users, and hence it is hard to recommend products to them.
+
 ## Building a recommendation engine
 
 https://www.codeproject.com/Articles/1232150/Building-a-Recommendation-Engine-in-Csharp
@@ -58,4 +163,27 @@ http://rstudio-pubs-static.s3.amazonaws.com/335300_11d40bf12d8940f78d9661b3c6315
 https://www.freecodecamp.org/news/singular-value-decomposition-vs-matrix-factoring-in-recommender-systems-b1e99bc73599/
 
 
+## Hacker news algorithm
+
+Pseudo code:
+```
+score = (P - 1) / (T + 2)^ G
+where,
+P = points of an item (-1 is to negate submitters vote)
+T = time since submission (in hours)
+G = gravity, defaults to 1.8
+```
+
+Effects of gravity (G) and time (T)
+- the score decreases as T increases, meaning older items will get lower and lower score
+- the score decreases much faster for older items if gravity is increased
+
+Python implementation:
+```python
+def calculate_score(votes, item_hour_age, gravity=1.8):
+	return (votes - 1) / pow((item_hour_age + 2), gravity)
+```
+
+References:
+- https://medium.com/hacking-and-gonzo/how-hacker-news-ranking-algorithm-works-1d9b0cf2c08d
 
