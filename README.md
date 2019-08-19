@@ -157,10 +157,11 @@ https://www.quora.com/What-are-examples-of-rule-engines-combined-with-machine-le
 
 ## Matrix Factorization
 
-https://en.m.wikipedia.org/wiki/Matrix_factorization_(recommender_systems)
-http://rstudio-pubs-static.s3.amazonaws.com/335300_11d40bf12d8940f78d9661b3c63150dc.html
+Link to another repo [here](https://github.com/alextanhongpin/matrix-factorization).
 
-https://www.freecodecamp.org/news/singular-value-decomposition-vs-matrix-factoring-in-recommender-systems-b1e99bc73599/
+- https://en.m.wikipedia.org/wiki/Matrix_factorization_(recommender_systems)
+- http://rstudio-pubs-static.s3.amazonaws.com/335300_11d40bf12d8940f78d9661b3c63150dc.html
+- https://www.freecodecamp.org/news/singular-value-decomposition-vs-matrix-factoring-in-recommender-systems-b1e99bc73599/
 
 
 ## Hacker news algorithm
