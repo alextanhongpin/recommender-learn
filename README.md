@@ -187,3 +187,58 @@ def calculate_score(votes, item_hour_age, gravity=1.8):
 References:
 - https://medium.com/hacking-and-gonzo/how-hacker-news-ranking-algorithm-works-1d9b0cf2c08d
 
+
+
+## Recommendation
+
+- https://medium.com/recombee-blog/machine-learning-for-recommender-systems-part-1-algorithms-evaluation-and-cold-start-6f696683d0ed
+- https://www.analyticsvidhya.com/blog/2018/06/comprehensive-guide-recommendation-engine-python/
+- https://en.wikipedia.org/wiki/Recommender_system
+- https://towardsdatascience.com/learning-to-make-recommendations-745d13883951
+
+# Learning to Rank (LtR)
+
+## Ranking and Learning to Rank
+
+- types of Learning to Rank (LTR) algorithms, such as pointwise, pairwise and listwise comparison of ranks
+- bayesian personalized ranking (BPR) 
+
+## The three types of LTR algorithm
+
+### pointwise
+
+- produce a score for each item and them ranks them accordingly
+- the difference between rating prediction and ranking is that with ranking, you don’t care of an item has a utility score of a million or within a rating scale, as long as the score symbolises a position in the rank
+
+### pairwise
+
+- a type of binary classifier
+- a function that takes two items an returns an ordering of the two
+- in pairwise ranking, output is optimised to minimise the number of inversions of items compared to the optimal rank of the items
+- an inversion is when two items changes place
+- e.g. Bayesian Personalized Ranking (BPR)
+
+### listwise
+
+- the king of all LTR subgroups
+- looks at the whole ranked list and optimises that
+- advantage of listwise ranking is that it intuits that ordering is more important at the top of a ranked list than at the bottom
+- pointwise and pairwise algorithms don’t distinguish where on the ranked list you are
+- e.g. CoFiRank (collaborative filtering for ranking)
+
+
+## References
+
+- https://github.com/practical-recommender-systems/moviegeek/blob/master/recs/bpr_recommender.py
+- http://www.gabormelli.com/RKB/Bayesian_Personalized_Ranking_(BPR)_Algorithm
+- https://towardsdatascience.com/recommender-system-using-bayesian-personalized-ranking-d30e98bba0b9
+- https://medium.com/radon-dev/implicit-bayesian-personalized-ranking-in-tensorflow-b4dfa733c478
+- https://github.com/benfred/implicit/blob/master/implicit/bpr.pyx
+- https://github.com/alfredolainez/bpr-spark/blob/master/bpr.py
+
+
+- https://medium.com/seek-blog/learning-to-rank-dogs-87a6c68dda43
+- http://fa.bianp.net/blog/2012/learning-to-rank-with-scikit-learn-the-pairwise-transform/
+- http://www.alfredo.motta.name/learning-to-rank-with-python-scikit-learn/
+- https://thenewstack.io/letor-machine-learning-web-search-technique-thats-turned-key-information-retrieval-tool/
+- https://www.infoworld.com/article/3259845/introduction-to-learning-to-rank-ltr-search-analysis.html
