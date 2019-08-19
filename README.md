@@ -369,3 +369,5 @@ Conversion paths = the sequence of pages and actions a user takes from the time 
 - https://thenewstack.io/letor-machine-learning-web-search-technique-thats-turned-key-information-retrieval-tool/
 - https://www.infoworld.com/article/3259845/introduction-to-learning-to-rank-ltr-search-analysis.html
 
+
+- https://multithreaded.stitchfix.com/blog/2019/07/15/give-me-jeans/?fbclid=IwAR2ldDYOTaun8oKSARxtrstyuv467HGzfsy7tWN2-kPHhbMUiRA3aYDPp6Y
