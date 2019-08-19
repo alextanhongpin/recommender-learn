@@ -319,6 +319,40 @@ sim(i, j) = item1 * item2 / sqrt(square(item1) * square(item2))
 ```
 
 
+## Ratings
+
+Implicit vs explicit ratings
+
+- implicit ratings: deduced from events triggered by the user. reliable if the context is known
+- explicit ratings: actual ratings a user insert. May not be reliable, as they can be biased due to social influences.
+
+E.g. If a user said he loves the Movie A by rating it 5 stars (explicit), but he purchase the ticket for Movie B that is screening on the same day (implicit), we know he would probably like Movie B more.
+
+## Conversions
+
+Conversion rate = number of goal achievements / number of visits
+
+Conversion funnel = shows the path users take before they convert. It is called a funnel because it starts out wide, then narrow.
+
+Conversion paths = the sequence of pages and actions a user takes from the time of arrival at the landing page until the conversion.
+
+
+## Events that can be scraped from a page
+- view content
+- view details
+- look inside
+- like content
+- share content
+- sign up for newsletter
+- search result click
+- campaign link
+- add to cart
+- add to favorite
+- rate 
+- write review
+- buy
+
+
 ## References
 
 - https://github.com/practical-recommender-systems/moviegeek/blob/master/recs/bpr_recommender.py
