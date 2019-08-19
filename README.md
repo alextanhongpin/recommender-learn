@@ -228,6 +228,97 @@ References:
 - e.g. CoFiRank (collaborative filtering for ranking)
 
 
+## Implicit ratings
+```
+Implicit Rating, IR = #event_1 * w_1 + #event_2 * w_2 + #event_3 * w_3…#event_n + w_n
+
+IR: the implicit rating
+#event: the number of times the specific event occured
+w: The weights that you set based on previous analysis (and probably tweak again when you start creating recommendations)
+````
+
+
+## Recommender algorithms
+- memory-based: recommender accesses the logs data in real-time
+- model-based: signifies that the algorithm aggregates the data beforehand to make it more responsive
+
+
+## Similarity and Distance
+
+The similarity of item 1 and item 2 can be represented as the following:
+
+- `sim(i_1, i_2), 0=not similar, 1=exact`
+- similarity is the inverse of distance
+- as the distance increase, the similarity goes towards zero
+- as the distance decrease, the similarity goes towards one
+
+| Data Type | Similarity |
+| - | - | 
+| unary/binary data | jaccard similarity |
+| quantitative data | pearson/cosine similarity |
+
+
+
+## Types of similarity algorithm
+- jaccard
+- l1 norm - manhattan distance
+- l2 norm - euclidean distance
+- pearson 
+- cosine
+
+## Jaccard Index
+- Jaccard similarity index/coefficient compares members for two sets to see which members are shared and which are distinct.
+- It is a measure of similarity for the two sets of data, with a range from 0 to 1.
+- The higher the value, the more similar the two populations
+```
+J(X, Y) = X intersect Y / X union Y
+```
+In steps, that is:
+- count the number of similar members between both sets (intersection)
+- count the total number of unique members in both sets (union)
+- divide them to get the jaccard similarity 
+
+Observation:
+- the value is 1 when both sets have the same members. (a non-empty set that is computed against itself will return 1 too)
+- the value is 0 if both sets have no similar members
+- the value is 0.5 if both sets share half the members
+- the value is 0 if the set is empty
+
+Jaccard Distance
+- as opposed to the jaccard similarity, the jaccard distance measures how dissimilar two sets are. 
+- in set notation, subtract 1 from the jaccard distance
+```
+D(X, Y) = 1 - J(X, Y)
+```
+
+## L1 Norm
+- aka manhattan distance or taxicab norm
+- the idea is that if you want to measure the distance between two street corners in Manhattan, you drive a grid, rather than measure as the crow flies
+- the sum of magnitudes of the vectors in space
+```
+Given X = [3,4] // x and y coordinate
+||X||1 = |3| + |4| = 7
+```
+The similarity is just the inverse of the distance. We add one to the denominator to avoid zero-division.
+```
+S = 1 / (||X||1 + 1)
+```
+## L2 Norm
+- aka euclidean norm
+- the distance between two points not travelled by a taxi in Manhattan, but by the crow, going directly from one point to another.
+- pythagorean theorem, `a^2 + b^2  = c^2`
+```
+Given X = [3,4] // x and y coordinate
+||X||2 = sqrt(|3^2| + |4^2|) = 5
+```
+
+## Cosine similarity
+- the angle between two points in a vector space
+```
+sim(i, j) = item1 * item2 / sqrt(square(item1) * square(item2))
+```
+
+
 ## References
 
 - https://github.com/practical-recommender-systems/moviegeek/blob/master/recs/bpr_recommender.py
@@ -243,3 +334,4 @@ References:
 - http://www.alfredo.motta.name/learning-to-rank-with-python-scikit-learn/
 - https://thenewstack.io/letor-machine-learning-web-search-technique-thats-turned-key-information-retrieval-tool/
 - https://www.infoworld.com/article/3259845/introduction-to-learning-to-rank-ltr-search-analysis.html
+
