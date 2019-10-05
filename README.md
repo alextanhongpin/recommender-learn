@@ -164,6 +164,16 @@ Link to another repo [here](https://github.com/alextanhongpin/matrix-factorizati
 - https://www.freecodecamp.org/news/singular-value-decomposition-vs-matrix-factoring-in-recommender-systems-b1e99bc73599/
 
 
+
+## Reddit Algorithm
+
+https://github.com/alextanhongpin/go-rate
+
+http://restfulmvc.com/reddit-algorithm.shtml
+https://www.reddit.com/r/changelog/comments/7hkvjn/what_we_think_about_when_we_think_about_ranking/
+https://www.reddit.com/r/changelog/comments/7j5w9f/keeping_the_home_feed_fresh/
+https://www.reddit.com/r/changelog/comments/7spgg0/best_is_the_new_hotness/
+
 ## Hacker news algorithm
 
 Pseudo code:
@@ -353,6 +363,7 @@ Conversion paths = the sequence of pages and actions a user takes from the time 
 - buy
 
 
+
 ## References
 
 - https://github.com/practical-recommender-systems/moviegeek/blob/master/recs/bpr_recommender.py
@@ -371,3 +382,5 @@ Conversion paths = the sequence of pages and actions a user takes from the time 
 
 
 - https://multithreaded.stitchfix.com/blog/2019/07/15/give-me-jeans/?fbclid=IwAR2ldDYOTaun8oKSARxtrstyuv467HGzfsy7tWN2-kPHhbMUiRA3aYDPp6Y
+
+
