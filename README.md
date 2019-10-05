@@ -3,6 +3,10 @@
 The know-how on how recommendation system works, and how to apply different algorithms for your projects.
 
 
+## How youtube sorting works
+
+https://stackoverflow.com/questions/27781751/what-is-youtube-comment-system-sorting-ranking-algorithm
+
 ## Types of recommendation system
 
 - Collaborative Learning
