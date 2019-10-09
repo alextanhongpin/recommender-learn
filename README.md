@@ -1,9 +1,14 @@
 # recommender-learn
 
-The know-how on how recommendation system works, and how to apply different algorithms for your projects.
+The know-how on how recommendation system works, and how to apply different algorithms for your projects. Also, add links to implementation in real-life!
 
 
 https://github.com/alextanhongpin/data-science-learn/blob/master/similarity.md
+
+
+Related: how to build a search ranking algorithm using Learning To Rank
+- https://www.searchenginejournal.com/build-search-ranking-algorithm-machine-learning/297047/#close
+
 
 ## How youtube sorting works
 
@@ -413,6 +418,4 @@ http://times.cs.uiuc.edu/course/598f14/l2r.pdf
 - http://www.alfredo.motta.name/learning-to-rank-with-python-scikit-learn/
 - https://thenewstack.io/letor-machine-learning-web-search-technique-thats-turned-key-information-retrieval-tool/
 - https://www.infoworld.com/article/3259845/introduction-to-learning-to-rank-ltr-search-analysis.html
-
-
 - https://multithreaded.stitchfix.com/blog/2019/07/15/give-me-jeans/?fbclid=IwAR2ldDYOTaun8oKSARxtrstyuv467HGzfsy7tWN2-kPHhbMUiRA3aYDPp6Y
