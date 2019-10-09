@@ -3,6 +3,8 @@
 The know-how on how recommendation system works, and how to apply different algorithms for your projects.
 
 
+https://github.com/alextanhongpin/data-science-learn/blob/master/similarity.md
+
 ## How youtube sorting works
 
 https://stackoverflow.com/questions/27781751/what-is-youtube-comment-system-sorting-ranking-algorithm
@@ -367,6 +369,34 @@ Conversion paths = the sequence of pages and actions a user takes from the time 
 - buy
 
 
+## Recommendation engine
+
+
+With surprise:
+using a library instead of implementing one yourself
+https://realpython.com/build-recommendation-engine-collaborative-filtering/
+
+Learning to rank with Bayesian Personallzed Ranking from implicit feedback
+https://researchcode.com/code/1395261448/bpr-bayesian-personalized-ranking-from-implicit-feedback/
+https://medium.com/radon-dev/als-implicit-collaborative-filtering-5ed653ba39fe
+https://towardsdatascience.com/recommender-system-using-bayesian-personalized-ranking-d30e98bba0b9
+
+Recommendation with Singular Value Decomposition (SVD)
+
+- how to build the svd matrix?
+- how to perform dimensionality reduction?
+- how to add new users?
+- how to update the ranking when new items are added
+
+http://rstudio-pubs-static.s3.amazonaws.com/335300_11d40bf12d8940f78d9661b3c63150dc.html
+http://www.cs.carleton.edu/cs_comps/0607/recommend/recommender/svd.html
+
+Using machine learning to rank
+https://dec0de.me/2014/10/learning-to-rank-1
+https://towardsdatascience.com/learning-to-rank-with-python-scikit-learn-327a5cfd81f
+https://thenewstack.io/letor-machine-learning-web-search-technique-thats-turned-key-information-retrieval-tool/
+http://times.cs.uiuc.edu/course/598f14/l2r.pdf
+
 
 ## References
 
@@ -386,5 +416,3 @@ Conversion paths = the sequence of pages and actions a user takes from the time 
 
 
 - https://multithreaded.stitchfix.com/blog/2019/07/15/give-me-jeans/?fbclid=IwAR2ldDYOTaun8oKSARxtrstyuv467HGzfsy7tWN2-kPHhbMUiRA3aYDPp6Y
-
-
