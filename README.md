@@ -419,3 +419,14 @@ http://times.cs.uiuc.edu/course/598f14/l2r.pdf
 - https://thenewstack.io/letor-machine-learning-web-search-technique-thats-turned-key-information-retrieval-tool/
 - https://www.infoworld.com/article/3259845/introduction-to-learning-to-rank-ltr-search-analysis.html
 - https://multithreaded.stitchfix.com/blog/2019/07/15/give-me-jeans/?fbclid=IwAR2ldDYOTaun8oKSARxtrstyuv467HGzfsy7tWN2-kPHhbMUiRA3aYDPp6Y
+
+
+
+## Personalization based on user’s last activity
+
+Say if we have a gamification leaderboard for top answers for a question answer platform, how do deal with if the last n + 1 position has the same score?
+e.g. we are suppose to take the top 10, but the 10th and 11th person score is the same?
+
+Get the average timestamp which they answer, it should be lower for those that answered first. So first come first serve principle. 
+
+Improvement, just compare the last answer's timestamp.
