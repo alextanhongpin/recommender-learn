@@ -1,3 +1,4 @@
 # Exclude large dataset.
 data/ratings_Beauty.csv
 data/product_descriptions.csv
+.ipynb_checkpoints/
