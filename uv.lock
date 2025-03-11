@@ -162,6 +162,19 @@ css = [
 ]
 
 [[package]]
+name = "bm25s"
+version = "0.2.9"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "scipy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/10/d3/5a574ee2a62703607db4bbc6aa4d034909ef2691172f3aac497b75cf1fa6/bm25s-0.2.9.tar.gz", hash = "sha256:e52d6663c68e96f46b1b82efa41a893d268bf979954b0b5ead912a4bfcd173a5", size = 57706 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d0/c3/2aad74450c511bf4e01fd368a8d311e875cfa5bf16eee6c7d3e866d53c1c/bm25s-0.2.9-py3-none-any.whl", hash = "sha256:a58a921851ce2fdf67ad642bfae48bb425dc8daf78c86f2bdc5e4f50866ece82", size = 53677 },
+]
+
+[[package]]
 name = "certifi"
 version = "2025.1.31"
 source = { registry = "https://pypi.org/simple" }
@@ -1479,6 +1492,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "black" },
+    { name = "bm25s" },
     { name = "h5py" },
     { name = "implicit" },
     { name = "ipywidgets" },
@@ -1494,6 +1508,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "black", specifier = ">=25.1.0" },
+    { name = "bm25s", specifier = ">=0.2.9" },
     { name = "h5py", specifier = ">=3.13.0" },
     { name = "implicit", specifier = ">=0.7.2" },
     { name = "ipywidgets", specifier = ">=8.1.5" },
