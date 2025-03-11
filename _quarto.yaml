@@ -10,7 +10,7 @@ project:
     - "**/*.md"
     - "!source" # Exclude source
 code-fold: false
-format: html # gfm: GitHub Flavored Markdown
+format: gfm # gfm: GitHub Flavored Markdown
 number-sections: true
 toc: true
 
